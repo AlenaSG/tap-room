@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
     <h3>{{currentSelection}}</h3>
     <ul class="list-group">
        <li class="list-group-item" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of kegs"><span [class]="percentageColor(currentKeg)">{{currentKeg.name}}</span><span class="badge">{{currentKeg.percentage}}</span>
-      <button class="pull-right" (click)="editTask()">Edit!</button>
+      <button class="pull-right" (click)="editKeg(currentKeg)">Edit!</button>
        </li>
      </ul>
 
@@ -38,9 +38,9 @@ export class AppComponent {
   ];
   selectedKeg: Keg = this.kegs[0];
 
-  editTask() {
-      alert("You just requested to edit a Keg!");
-    }
+  editKeg(clickedKeg) {
+    this.selectedKeg = clickedKeg;
+  }
 
 
     isEmpty(clickedKeg: Keg) {
