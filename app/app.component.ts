@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   <div class="container">
     <h1>Tap Room</h1>
     <h3>{{currentSelection}}</h3>
-    <ul>
-       <li (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of kegs">{{currentKeg.name}}
-       <button (click)="editTask()">Edit!</button>
+    <ul class="list-group">
+       <li class="list-group-item" (click)="isEmpty(currentKeg)" *ngFor="let currentKeg of kegs"><span [class]="percentageColor(currentKeg)">{{currentKeg.name}}</span><span class="badge">{{currentKeg.percentage}}</span>
+      <button class="pull-right" (click)="editTask()">Edit!</button>
        </li>
      </ul>
   </div>
@@ -18,9 +18,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   currentSelection: string = 'Summer Selection';
   kegs: Keg[] = [
-    new Keg('LA TRAPPE QUADRUPEL'),
-    new Keg('MURPHY’S IRISH'),
-    new Keg('BLUE MOON BELGIAN')
+    new Keg('LA TRAPPE QUADRUPEL', 5.9),
+    new Keg('MURPHY’S IRISH', 4.2),
+    new Keg('BLUE MOON BELGIAN', 3.9)
   ];
 
   editTask() {
@@ -36,12 +36,20 @@ export class AppComponent {
       }
     }
 
+percentageColor(currentKeg){
+    if (currentKeg.percentage === 5.9){
+      return "bg-danger";
+    } else if (currentKeg.percentage === 4.2) {
+      return  "bg-warning";
+    } else {
+      return "bg-info";
+    }
+  }
+
   }
 
 
-}
-
 export class Keg {
   public empty: boolean = false;
-  constructor(public name: string) { }
+  constructor(public name: string, public percentage: number) { }
 }
