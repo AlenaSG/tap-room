@@ -11,7 +11,21 @@ import { Component } from '@angular/core';
       <button class="pull-right" (click)="editTask()">Edit!</button>
        </li>
      </ul>
-  </div>
+
+     <hr>
+             <div>
+               <h3>{{selectedKeg.name}}</h3>
+               <p>Keg Empty? {{selectedKeg.empty}}</p>
+               <h3>Edit Keg</h3>
+               <label>Enter Keg name:</label>
+               <input [(ngModel)]="selectedKeg.name">
+               <label>Enter Alcohol Percentage (3.9 - 5.9):</label>
+               <br>
+               <input type="radio" [(ngModel)]="selectedKeg.percentage" [value]="3.9">3.9(Low % Alc./Vol.)<br>
+               <input type="radio" [(ngModel)]="selectedKeg.percentage" [value]="4.2">4.2 (Medium  % Alc./Vol.)<br>
+               <input type="radio" [(ngModel)]="selectedKeg.percentage" [value]="5.9">5.9 (High  % Alc./Vol.)
+            </div>
+          </div>
   `
 })
 
@@ -22,6 +36,7 @@ export class AppComponent {
     new Keg('MURPHY’S IRISH', 4.2),
     new Keg('BLUE MOON BELGIAN', 3.9)
   ];
+  selectedKeg: Keg = this.kegs[0];
 
   editTask() {
       alert("You just requested to edit a Keg!");
