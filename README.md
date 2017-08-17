@@ -25,3 +25,5 @@ Further Exploration
 * As an employee, I want to select an option to put a certain keg on sale. This would lower the cost by a percentage of my choosing, and perhaps change a keg's appearance in the list to draw customers' attention to it.
 * As an employee, I might want to program a "happy hour" option I can select to put all kegs on sale.
 * As an employee, I might want to trigger the "happy hour" option automatically at a certain time of the day or week. (Note that this is advanced and goes beyond the scope of this week's curriculum. Prepare to do your own outside research.)
+
+##  Additional links: Angular tutorial - "Component Interaction" https://angular.io/guide/component-interaction

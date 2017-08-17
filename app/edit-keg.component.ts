@@ -18,6 +18,9 @@ import { Keg } from './keg.model';
     <input type="radio" [(ngModel)]="childSelectedKeg.percentage" [value]="5.9">5.9 (High  % Alc./Vol
     <br>
     <br>
+    <button (click)="reduceButtonClicked()">Reduce</button>
+    <br>
+    <br>
     <button (click)="doneButtonClicked()">Done</button>
 
 </div>
@@ -28,10 +31,15 @@ import { Keg } from './keg.model';
 export class EditKegComponent {
   @Input() childSelectedKeg: Keg;
   @Output() doneButtonClickedSender = new EventEmitter();
+  @Output() reduceButtonClickedSender = new EventEmitter();
 
   doneButtonClicked() {
     this.doneButtonClickedSender.emit();
   }
 
+  reduceButtonClicked(){
+    this.reduceButtonClickedSender.emit();
+  
+  }
 
 }

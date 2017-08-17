@@ -1,4 +1,5 @@
 export class Keg {
   public empty: boolean = false;
-  constructor(public name: string, public percentage: number) { }
+  public volume: number = 124;
+  constructor(public name: string, public percentage: number, public type: string, public price: number) { }
 }
