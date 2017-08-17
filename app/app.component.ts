@@ -39,8 +39,10 @@ export class AppComponent {
 
   reduceVolume(){
     this.volume --;
-    alert(this.volume);
-    
+    // alert(this.volume);
+  if (this.volume <= 120)  {
+    alert("please fill up the keg!");
+  }
 
   }
 
